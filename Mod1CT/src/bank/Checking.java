@@ -26,15 +26,18 @@ public class Checking extends Account{
 		return fee;
 	}
 	
-	public void displayAccount() {
-		return;
-	}
 	@Override
-	public String toString() {
-		return firstName + " " 
-				+ lastName + " " 
-				+ accountID + " " 
-				+ balance + " " 
-				+ interest;
+	public void displayAccount() {
+		super.displayAccount();
+		System.out.println("\nInterest: " + interest);
+		System.out.println();
+	}
+	
+	@Override
+	public void accountSummary() {
+		super.displayAccount();
+		System.out.print("\nInterest: " + interest);
+		System.out.println("\nOverdraft Fee: $" + overdraft);
+		System.out.println();
 	}
 }

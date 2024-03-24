@@ -14,7 +14,7 @@ public class Account extends BankMain{
 			
 	}
 	public Account() {
-		this.setBalance(balance = 0.0);
+		this.setBalance(balance = 0);
 	}
 
 	public String getFirstName() {
@@ -47,5 +47,18 @@ public class Account extends BankMain{
 
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+
+	public void displayAccount() {
+		System.out.print("First Name: " + firstName 
+				+ "\nLast Name: " + lastName 
+				+ "\nAccount ID: " + accountID 
+				+ "\nBalance: $"	+ balance + " ");
+	}
+	public void accountSummary() {
+		System.out.print(firstName + " " 
+				+ lastName + " " 
+				+ accountID + " " 
+				+ balance + " ");
 	}
 }

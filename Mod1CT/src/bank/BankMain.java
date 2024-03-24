@@ -14,8 +14,10 @@ public class BankMain {
 		System.out.println(checking.getLastName());
 		System.out.println(checking.getAccountID());
 		System.out.println(checking.getBalance());
-		
+		System.out.print("Account was overdrawn. Balance after withdrawl: $");
 		System.out.println(checking.processWithdrawl());
+		System.out.println();
+		checking.accountSummary();
 		checking.displayAccount();
 		
 		
