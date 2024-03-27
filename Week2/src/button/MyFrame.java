@@ -9,14 +9,22 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class MyFrame extends JFrame implements ActionListener{
 
 		JButton button;
-	
+		JLabel label;
+		
 		MyFrame() {
 			
 			ImageIcon icon = new ImageIcon("Teddy No-Legs.jpg");
+			ImageIcon icon2 = new ImageIcon("Davie No-Head.jpg");
+			
+			label = new JLabel();
+			label.setIcon(icon2);
+			label.setBounds(250, 250, 300, 300);
+			label.setVisible(false);
 			
 			button = new JButton();
 			button.setBounds(125, 100, 300, 100);
@@ -34,10 +42,11 @@ public class MyFrame extends JFrame implements ActionListener{
 			
 			
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit on close
-			this.setSize(500,500); // size of the frame
+			this.setSize(700,700); // size of the frame
 			this.setLayout(null);
 			this.setVisible(true); // make it visible
 			this.add(button);
+			this.add(label);
 			
 			
 		}
@@ -45,7 +54,9 @@ public class MyFrame extends JFrame implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == button) {
-				System.out.println("poo");
+				//System.out.println("poo");
+				button.setText("Hello Me!");
+				label.setVisible(true);
 			}
 			
 		}
