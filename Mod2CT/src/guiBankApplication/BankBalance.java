@@ -76,7 +76,7 @@ public class BankBalance extends JFrame implements ActionListener {
 		exitButton = new JButton("Exit");
 		exitButton.setBounds(100, 200, 200, 25);
 		exitButton.setVisible(false);
-		displayButton.addActionListener(this);
+		exitButton.addActionListener(this);
 		
 		panel.add(submitButton);
 		panel.add(userInput);
@@ -138,7 +138,7 @@ public class BankBalance extends JFrame implements ActionListener {
 			updateBalanceLabel();
 		}
 		else if(e.getSource() == exitButton) {
-			return;
+			System.exit(0);
 		}
 	}	
 }
