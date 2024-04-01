@@ -1,6 +1,5 @@
 package application;
 	
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import javafx.application.Application;
@@ -9,26 +8,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 
 public class Main extends Application {
 	
-	static GridPane root;
+	static VBox root;
 	
 	@Override
-	public void start(Stage primaryStage) throws FileNotFoundException {
-		
+	public void start(Stage primaryStage) {
 		try {
-			root = new GridPane();
+			root = new VBox();
 			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().
-					getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("GridPane!");
-			primaryStage.getIcons().add(new Image(new FileInputStream("Teddy No-Legs.jpg")));
 			primaryStage.show();
 			
 			load();
@@ -48,17 +41,28 @@ public class Main extends Application {
 		Label lastName = new Label("Last Name");
 		TextField tf1 = new TextField();
 		TextField tf2 = new TextField();
-		Button btn = new Button("Submit");
+		Button btn = new Button("Submit"); // adding CSS
 		
+		// add to the CSS file
+//		firstName.setId("firstNameLabel");
+//		lastName.setId("lastNameLabel");
+//		
+//		// one way to set CSS
+//		btn.setStyle("-fx-background-color:#000000");
+//		
 		// this adds the elements horizontally in rows
 //		root.addRow(0, firstName, tf1);
 //		root.addRow(1, lastName, tf2);
 //		root.addRow(2, btn);
 		
+		btn.setOnAction(e -> {
+			System.out.println("First Name: " + tf1.getText() + " Last Name: " + tf2.getText());
+			tf1.setText("");
+			tf2.setText("");
+		});
+//		
 		// this adds the elements vertically in columns
-		root.addColumn(0, firstName, tf1);
-		root.addColumn(1, lastName, tf2);
-		root.addColumn(2, btn);
+		root.getChildren().addAll(firstName, tf1, lastName, tf2, btn);
 		
 		
 	}
