@@ -80,8 +80,6 @@ public class Main extends Application {
 		btn1.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
 			
 			public void handle(MouseEvent event) {
-				System.out.println("1");
-				btn1.setText("1");
 				box1.setCycleCount(Animation.INDEFINITE);
 				box1.play();
 				
@@ -106,6 +104,11 @@ public class Main extends Application {
 		        int red = 0; // No red component
 		        int green = random.nextInt(256); // Random green component
 		        int blue = 0; // No blue component
+		        // # is literal, % Indicates that a format specifier follows
+		        // 0 Indicates that leading zeros should be including if necessary (01,08)
+		        // 2 indicates that the output should be at least 2 characters wide (XX)
+		        // 'x' Indicates that the argument should be formatted as a hexadecimal integer
+		        // "#05fa83" or "#ffffff" or "#00000f"
 		        String color = String.format("#%02x%02x%02x", red, green, blue); 
 				root.setStyle("-fx-background-color: " + color);
 		        
