@@ -50,9 +50,10 @@ public class Main extends Application {
 	}
 	
 	public void load() {
-		
+		// Creating a HBox to house the buttons. 
 		HBox btns = new HBox();
 		
+		// contstructing the buttons
 		Button btn1 = new Button("1");
 		btn1.setMinSize(100, 100);
 		Button btn2 = new Button("2");
@@ -62,16 +63,22 @@ public class Main extends Application {
 		Button btn4 = new Button("4");
 		btn4.setMinSize(100, 100);
 		
+		// creating the textfield for the text
 		TextField box = new TextField("");
 		box.setEditable(true);
 		box.setStyle("-fx-alignment: CENTER;");
 		box.setMaxSize(200, 200);
 		
-		Timeline box1 = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-	            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-	            String currentTime = sdf.format(new Date());
-	            box.setText(currentTime);
-	        }));
+		// loading the Timeline and Duration utilities, setting up the duration in seconds
+		Timeline box1 = new Timeline();
+		Duration duration = Duration.seconds(1);
+		
+//		// this creates the timeline
+//		Timeline box1 = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+//	            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+//	            String currentTime = sdf.format(new Date());
+//	            box.setText(currentTime);
+//	        }));
 		   
 	        
 		
@@ -80,8 +87,19 @@ public class Main extends Application {
 		btn1.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
 			
 			public void handle(MouseEvent event) {
-				box1.setCycleCount(Animation.INDEFINITE);
-				box1.play();
+				// loading the SimpleDateFormat and formatting it for HH:mm assigning the sdf variable
+				SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+				// loading the date utility and assigning the currentTime variable
+				Date currentTime = new Date();
+				// setting up the variable to represent the current time as formatted. 
+				String formattedTime = sdf.format(currentTime);
+				// inserting that time as a text in the box TextField
+				box.setText(formattedTime);
+				
+				
+				
+//				box1.setCycleCount(Animation.INDEFINITE);
+//				box1.play();
 				
 			}
 		});
@@ -89,7 +107,9 @@ public class Main extends Application {
 		btn2.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventHandler<MouseEvent>() {
 			
 			public void handle(MouseEvent event) {
+				// assisning the text String to the information in the box TextField
 				String text = box.getText();
+				// pausing the 
 				box1.pause();
 				saveToFile(text);
 				
