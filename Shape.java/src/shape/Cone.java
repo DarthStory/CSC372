@@ -28,10 +28,10 @@ public class Cone extends Shape{
 		return (Math.PI * radius * radius * height) / 3;
 	}
 	
-	@Override
-	public String toString() {
-		return "Surface Area: " + dF.format(surface_area()) + ", Volume: " + dF.format(volume());
-	}
+//	@Override
+//	public String toString() {
+//		return "Surface Area: " + dF.format(surface_area()) + ", Volume: " + dF.format(volume());
+//	}
 
 
 }

@@ -27,9 +27,9 @@ public class Cylinder extends Shape{
 	public double volume() {
 		return Math.PI * radius * radius * height;
 	}
-	@Override
-	public String toString() {
-		return "Surface Area: " + dF.format(surface_area()) + ", Volume: " + dF.format(volume());
-	}
+//	@Override
+//	public String toString() {
+//		return "Surface Area: " + dF.format(surface_area()) + ", Volume: " + dF.format(volume());
+//	}
 
 }
