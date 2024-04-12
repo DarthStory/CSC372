@@ -6,11 +6,7 @@ public abstract class Shape {
 
 	DecimalFormat dF = new DecimalFormat("#.###");
 	
+	// A way to make sure that these methods are implemented in the subclasses. 
 	public abstract double surface_area();
 	public abstract double volume();
-	
-	@Override
-	public String toString() {
-		return "Surface Area: " + dF.format(surface_area()) + ", Volume: " + dF.format(volume());
-	}
 }

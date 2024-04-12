@@ -22,8 +22,8 @@ public class Sphere extends Shape{
 		return (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
 	}
 	
-//	@Override
-//	public String toString() {
-//		return "Surface Area: " + dF.format(surface_area()) + ", Volume: " + dF.format(volume());
-//	}
+	@Override
+	public String toString() {
+		return "Surface Area: " + dF.format(surface_area()) + ", Volume: " + dF.format(volume());
+	}
 }
