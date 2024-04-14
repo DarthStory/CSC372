@@ -1,14 +1,14 @@
 package military;
 
-public class President {
+public class President extends MilitaryMight{
 
-	public static void main(String[] args) {
+	@Override
+	public void announceRank() {
+		System.out.println("I am the President!");
 		
-		Major1 major1 = new Major1();
-		Major2 major2 = new Major2();
-		
-		General.command();
-		System.out.println(major1);
 	}
-
+	public void callToArms() {
+		announceRank();
+	}
+	
 }
