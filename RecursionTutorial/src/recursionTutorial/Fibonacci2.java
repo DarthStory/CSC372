@@ -1,6 +1,6 @@
 package recursionTutorial;
 
-public class Fibonacci {
+public class Fibonacci2 {
 	// for memoization
 	private static long[] fibonacciCache;
 	
@@ -28,12 +28,12 @@ public class Fibonacci {
 			return n;
 		}
 		// we cannot start on 0
-//		if (fibonacciCache[n] != 0) {
-//			return fibonacciCache[n];
-//		}
+		if (fibonacciCache[n] != 0) {
+			return fibonacciCache[n];
+		}
 		// creates the long array to store the calculations
 		long nthFibonacciNumber = (fibonacci(n - 1) + fibonacci(n - 2));
-//		fibonacciCache[n] = nthFibonacciNumber;
+		fibonacciCache[n] = nthFibonacciNumber;
 		// returns the numbers
 		return nthFibonacciNumber;
 		
