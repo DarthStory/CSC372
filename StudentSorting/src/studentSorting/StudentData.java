@@ -28,4 +28,7 @@ public class StudentData {
 				System.out.println(students.get(i));
 			}
 		}
+		public void getStudent() {
+			return students;
+		}
 }

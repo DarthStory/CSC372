@@ -2,9 +2,9 @@ package studentSorting;
 
 public class Student {
 
-	private int rollno;
-	private String name;
-	private String address;
+	int rollno;
+	String name;
+	String address;
 	
 	public Student(String name, int rollno, String address) {
 		this.name = name;
