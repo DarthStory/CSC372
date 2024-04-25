@@ -38,6 +38,7 @@ public class StudentSortingMain {
 		System.out.println("Students Added.\n");
 		}
 		
+		
 		selectionSort(data, new StringComparator());
 		data.viewStudent();
 	}

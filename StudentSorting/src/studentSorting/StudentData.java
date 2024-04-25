@@ -28,7 +28,7 @@ public class StudentData {
 				System.out.println(students.get(i));
 			}
 		}
-		public void getStudent() {
+		public List<Student> getStudent() {
 			return students;
 		}
 }
