@@ -5,7 +5,7 @@ import java.util.List;
 
 public class StudentData {
 
-		private List<Student> students;
+		public List<Student> students;
 		
 		public StudentData() {
 			students = new ArrayList<>();

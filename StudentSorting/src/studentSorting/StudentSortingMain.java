@@ -2,6 +2,7 @@ package studentSorting;
 
 import java.util.Comparator;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentSortingMain {
@@ -29,18 +30,22 @@ public class StudentSortingMain {
 				}
 			}
 		
-		scnr.nextLine();
-		System.out.println("Address: ");
-		String address = scnr.nextLine();
-		i++;
+			scnr.nextLine();
+			System.out.println("Address: ");
+			String address = scnr.nextLine();
+			i++;
 		
-		data.addStudent(name, rollno, address);
-		System.out.println("Students Added.\n");
+			data.addStudent(name, rollno, address);
 		}
+		System.out.println("Students Added.\n");
 		
-		
-		selectionSort(data, new StringComparator());
-		data.viewStudent();
+//		List<Student> studentsList = data.getStudent();
+//		Student[] studentsArray = studentsList.toArray(new Student[0]);
+//		selectionSort(studentsArray, new StringComparator());
+//		data.viewStudent();
+//		for(Student student : studentsList) {
+//			System.out.println(student);
+//		}
 	}
 	
 	public static void selectionSort(Student[] data, Comparator<Student> comparator) {
@@ -51,9 +56,9 @@ public class StudentSortingMain {
 						minIndex = j;
 				}
 			}
-		Student temp = data[minIndex];
-		data[minIndex] = data[i];
-		data[i] = temp;
+			Student temp = data[minIndex];
+			data[minIndex] = data[i];
+			data[i] = temp;
 		}
 	}
 }
