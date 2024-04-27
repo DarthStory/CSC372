@@ -8,7 +8,7 @@ public class StudentSorter {
 		public static void selectionSort(ArrayList<Student> students, Comparator<Student> comparator) {
 			int n = students.size();
 			for(int i = 0; i < n - 1; i++) {
-				int minIndex = 1;
+				int minIndex = i;
 				for(int j = i + 1; j < n; j++) {
 					if(comparator.compare(students.get(j), students.get(minIndex)) < 0) {
 						minIndex = j;
