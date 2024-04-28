@@ -5,6 +5,16 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SortingStudents {
+	
+	/*
+	 * This is the main method, While the programs are small, I use this as the interface between the program and the user. I would
+	 * assume that in the real world there are procedures to follow that might make this not the way to go about it
+	 * 
+	 * First I established the array that I will store the data and ask the user for the information to be input. Then close the interaction. 
+	 * 
+	 * I then label the process, run the sorting method with the array and the comparator for both Strings and Integers
+	 * Lastly it goes through the sorted array and prints out the data. 
+	 */
 
 
 	public static void main(String[] args) {

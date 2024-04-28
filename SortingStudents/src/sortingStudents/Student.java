@@ -1,6 +1,10 @@
 package sortingStudents;
 
 public class Student {
+	
+	/*
+	 * Setup of the Student object, lists the variables and components. 
+	 */
 
 	public String name;
 	public int rollno;
