@@ -25,7 +25,7 @@ public class SortingStudents {
 		
 		System.out.println("Enter Name, Roll Number, and Address. ");
 		int i = 0;
-		while (i <= 5) {
+		while (i <= 10) {
 			System.out.println("Name: ");
 			String name = scnr.next();
 		
