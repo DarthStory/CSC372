@@ -1,5 +1,8 @@
 package manipulationOfGPA;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -31,6 +34,10 @@ public class GPAMain {
 				try {
 					System.out.println("GPA: ");
 					GPA = scnr.nextDouble();
+					if (GPA <= 0.0 || GPA > 4.0) {
+						System.out.println("Please enter a valid GPA.");
+						scnr.next();
+					}
 				}catch (InputMismatchException e) {
 					System.out.println("Invalid entry. Please enter again.");
 					scnr.next();
@@ -57,7 +64,19 @@ public class GPAMain {
 		StudentSorter.selectionSort(students, new DoubleComparator());
 		for(Student student : students) {
 			System.out.println(student);
+			
+		saveToFile(students);
 		}
+	}
+	public static void saveToFile(LinkedList<Student> students) {		
+		File file = new File("C:\\Temp\\GPA.txt");		
+	       try (FileWriter writer = new FileWriter(file)) {        	
+	           for(Student student : students) {
+	        	   writer.write(student.toString() + "\n");
+	           }
+	       } catch (IOException e) {
+	           e.printStackTrace();
+	       }
 	}
 
 }
