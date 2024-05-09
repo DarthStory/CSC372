@@ -17,56 +17,71 @@ public class GPAMain {
 	public static void main(String[] args) {
 		LinkedList<Student> students = new LinkedList<>();
 		Scanner scnr = new Scanner(System.in);
-		 
+		while(true) { 
+			System.out.println("Do you want to enter in a new Student. Y(Yes) or N(No)");
+			String answer = scnr.next();
+			char ch = answer.charAt(0);
+				if( ch == 'n' || ch == 'N') {
+					
+					System.out.println("Sorting by Name. Saving to: C:\\Temp\\GPA.txt \nExiting program.");
+					StudentSorter.selectionSort(students, new StringComparator());
+					for(Student student : students) {
+						System.out.println(student);
 		
-		System.out.println("Enter Name, Address and GPA. ");
-		int i = 0;
-		while (i <= 3) {
-			System.out.println("Name: ");
-			String name = scnr.next();
-			
-			System.out.println("Address: ");
-			String address = scnr.nextLine();
-			scnr.nextLine();
-			
-			double GPA = -1.0;
-			while(GPA < 0.0) {
-				try {
-					System.out.println("GPA: ");
-					GPA = scnr.nextDouble();
-					if (GPA <= 0.0 || GPA > 4.0) {
-						System.out.println("Please enter a valid GPA.");
-						scnr.next();
+						saveToFile(students);
+						scnr.close();
 					}
-				}catch (InputMismatchException e) {
-					System.out.println("Invalid entry. Please enter again.");
-					scnr.next();
-				}
-			}
+					System.exit(0);
+				} else if(ch == 'y' || ch == 'Y') {
+		
+					System.out.println("Enter Name, Address and GPA. ");
+					int i = 0;
+//					while (i <= 3) {
+						System.out.println("Name: ");
+						String name = scnr.next();
+			
+						System.out.println("Address: ");
+						String address = scnr.nextLine();
+						scnr.nextLine();
+			
+						double GPA = -1.0;
+						while(GPA < 0.0) {
+							try {
+								System.out.println("GPA: ");
+								GPA = scnr.nextDouble();
+								if (GPA <= 0.0 || GPA > 4.0) {
+									System.out.println("Please enter a valid GPA.");
+									GPA = -1.0;
+										scnr.next();
+								}
+							}catch (InputMismatchException e) {
+								System.out.println("Invalid entry. Please enter again.");
+								scnr.next();
+							}
+						}
 		
 			
-			students.add(new Student(name, address, GPA));
-			i++;
+						students.add(new Student(name, address, GPA));
+						i++;
 			
-		}
-		scnr.close();
-		System.out.println("Students Added.\n");
+//					}
+					
+					System.out.println("Students Added.\n");
 	
-		System.out.println("Sorting by Name: ");
-		StudentSorter.selectionSort(students, new StringComparator());
-		for(Student student : students) {
-			System.out.println(student);
+		
+				}else {
+					System.out.println("Please enter in either 'Y' or 'N'. Thank you.");
+				}
+		
+				System.out.println();
 		}
-		
-		System.out.println();
-		
-		System.out.println("Sorting by GPA: ");
-		StudentSorter.selectionSort(students, new DoubleComparator());
-		for(Student student : students) {
-			System.out.println(student);
+//		System.out.println("Sorting by GPA: ");
+//		StudentSorter.selectionSort(students, new DoubleComparator());
+//		for(Student student : students) {
+//			System.out.println(student);
 			
-		saveToFile(students);
-		}
+		
+//		}
 	}
 	public static void saveToFile(LinkedList<Student> students) {		
 		File file = new File("C:\\Temp\\GPA.txt");		
