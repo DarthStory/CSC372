@@ -7,10 +7,6 @@ import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-//import manipulationOfGPA.DoubleComparator;
-//import manipulationOfGPA.StringComparator;
-//import manipulationOfGPA.Student;
-//import manipulationOfGPA.StudentSorter;
 
 public class GPAMain {
 
@@ -23,7 +19,7 @@ public class GPAMain {
 			char ch = answer.charAt(0);
 				if( ch == 'n' || ch == 'N') {
 					
-					System.out.println("Sorting by Name. Saving to: C:\\Temp\\GPA.txt \nExiting program.");
+					System.out.println("Sorting by Name. Saving to: C:\\Temp\\GPA.txt \nExiting program.\n");
 					StudentSorter.selectionSort(students, new StringComparator());
 					for(Student student : students) {
 						System.out.println(student);
@@ -66,7 +62,7 @@ public class GPAMain {
 			
 //					}
 					
-					System.out.println("Students Added.\n");
+					System.out.println("Students Added.");
 	
 		
 				}else {
@@ -75,13 +71,7 @@ public class GPAMain {
 		
 				System.out.println();
 		}
-//		System.out.println("Sorting by GPA: ");
-//		StudentSorter.selectionSort(students, new DoubleComparator());
-//		for(Student student : students) {
-//			System.out.println(student);
-			
-		
-//		}
+
 	}
 	public static void saveToFile(LinkedList<Student> students) {		
 		File file = new File("C:\\Temp\\GPA.txt");		
