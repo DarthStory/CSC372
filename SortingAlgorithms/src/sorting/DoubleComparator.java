@@ -1,4 +1,4 @@
-package manipulationOfGPA;
+package sorting;
 
 import java.util.Comparator;
 
