@@ -10,6 +10,25 @@ import java.util.Scanner;
 
 public class GPAMain {
 
+	/*Created a LinkedList <Student> to allow storage of the data
+	 * In order to be able to give the user the ability to stop the program, i prompted
+	 * for if they wanted to add to the list, or if they were done. This would allow for 
+	 * any size List to be tested. 
+	 * 
+	 * To add a Student, i went through the process of adding the user. I originally had a loop to do this,
+	 * but then did not know how to get the program to stop in order to save to file, also did not know exactly
+	 * how long the list would be? 3.. 10.. 50? I gave the user the option to determine the amount of data
+	 * within the LinkedList. 
+	 * 
+	 * When they no longer wanted to add to the list, it cycled through the list and showed the order, 
+	 * then also printed that list to a .txt file in the C:\Temp folder. 
+	 * 
+	 * I added the try catch for validation of the GPA.
+	 * 
+	 * I took care of any input that would be outside of 'y', 'Y', 'n', or 'N'
+	 * 
+	 * closed the scanner to prevent memory leak
+	 */
 	public static void main(String[] args) {
 		LinkedList<Student> students = new LinkedList<>();
 		Scanner scnr = new Scanner(System.in);
@@ -23,7 +42,6 @@ public class GPAMain {
 					StudentSorter.selectionSort(students, new StringComparator());
 					for(Student student : students) {
 						System.out.println(student);
-		
 						saveToFile(students);
 						scnr.close();
 					}
@@ -31,47 +49,35 @@ public class GPAMain {
 				} else if(ch == 'y' || ch == 'Y') {
 		
 					System.out.println("Enter Name, Address and GPA. ");
-					int i = 0;
-//					while (i <= 3) {
-						System.out.println("Name: ");
-						String name = scnr.next();
+					System.out.println("Name: ");
+					String name = scnr.next();
 			
-						System.out.println("Address: ");
-						String address = scnr.nextLine();
-						scnr.nextLine();
+					System.out.println("Address: ");
+					String address = scnr.nextLine();
+					scnr.nextLine();
 			
-						double GPA = -1.0;
-						while(GPA < 0.0) {
-							try {
-								System.out.println("GPA: ");
-								GPA = scnr.nextDouble();
-								if (GPA <= 0.0 || GPA > 4.0) {
-									System.out.println("Please enter a valid GPA.");
-									GPA = -1.0;
-										scnr.next();
-								}
-							}catch (InputMismatchException e) {
-								System.out.println("Invalid entry. Please enter again.");
-								scnr.next();
+					double GPA = -1.0;
+					while(GPA < 0.0) {
+						try {
+							System.out.println("GPA: ");
+							GPA = scnr.nextDouble();
+							if (GPA <= 0.0 || GPA > 4.0) {
+								System.out.println("Please enter a valid GPA.");
+								GPA = -1.0;
+									scnr.next();
 							}
+						}catch (InputMismatchException e) {
+							System.out.println("Invalid entry. Please enter again.");
+							scnr.next();
 						}
-		
-			
-						students.add(new Student(name, address, GPA));
-						i++;
-			
-//					}
-					
+					}
+					students.add(new Student(name, address, GPA));
 					System.out.println("Students Added.");
-	
-		
 				}else {
 					System.out.println("Please enter in either 'Y' or 'N'. Thank you.");
 				}
-		
 				System.out.println();
 		}
-
 	}
 	public static void saveToFile(LinkedList<Student> students) {		
 		File file = new File("C:\\Temp\\GPA.txt");		
